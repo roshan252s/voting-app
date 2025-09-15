@@ -10,17 +10,26 @@ const User = require('../models/user')
 
 
 //Function to check if it's admin or not.
-const checkAdmin = async (userId) => {
+
+const checkAdmin = async (id) => {
+
     try {
-        const user = await User.findById(userId)
-        return user.role == "admin"
+        const user = await User.findById(id)
+        const role = user.role
+
+        if (!user || role == "voter") {
+            return false
+        } else {
+            return true
+        }
 
     } catch (error) {
-        return false
+        console.log(error);
+        res.status(500).json({ err: "Internal server error" })
     }
 }
 
-//To see all the candidates
+//To see all the candidates 
 router.get('/', async (req, res) => {
 
     try {
@@ -47,23 +56,15 @@ router.get('/', async (req, res) => {
 router.post('/', jwtAuthMiddleware, async (req, res) => {
 
     try {
-        const userId = req.user.payload.id
+        const id = req.user.id
 
-        if (checkAdmin(userId)) {
-            const candidate = req.body
-            console.log(candidate);
+        if (!(await checkAdmin(id))) return res.status(401).json({ err: "You are not eligible to add the candidate." })
 
-            const newCandidate = new Candidate(candidate)
-            const response = await newCandidate.save()
-            console.log(response);
-
-            res.status(200).json(response)
-        } else {
-            res.status(401).json({ err: "You are not eligible for this" })
-        }
-
-
-
+        const candidateData = req.body
+        const newCandidate = new Candidate(candidateData)
+        const response = await newCandidate.save()
+        res.status(200).json(response)
+        
     } catch (error) {
         console.log(error);
         res.status(500).json({ err: "Internal server error" })
@@ -76,11 +77,11 @@ router.post('/', jwtAuthMiddleware, async (req, res) => {
 router.put('/:candidateId', jwtAuthMiddleware, async (req, res) => {
 
     try {
-        const userId = req.user.payload.id
+        const id = req.user.id
 
         const candidateId = req.params.candidateId
 
-        if (!checkAdmin(userId)) return res.status(401).json({ err: "You are not eligible for this" })
+        if (!(await checkAdmin(id))) return res.status(401).json({ err: "You are not eligible to update the candidate." })
 
         const updatedCandidateData = req.body
 
@@ -91,7 +92,7 @@ router.put('/:candidateId', jwtAuthMiddleware, async (req, res) => {
         if (!updatedCandidate) {
             res.status(401).json("Candidate couldn't be updated.")
         }
-        res.status(200).json("Candidate data updated.")
+        res.status(200).json(updatedCandidate)
 
     } catch (error) {
         console.log(error);
@@ -106,16 +107,16 @@ router.put('/:candidateId', jwtAuthMiddleware, async (req, res) => {
 router.delete('/:candidateId', jwtAuthMiddleware, async (req, res) => {
 
     try {
-        const userId = req.user.payload.id
+        const id = req.user.id
         const candidateId = req.params.candidateId
 
-        if (!checkAdmin(userId)) return res.status(401).json({ err: "You are not eligible for this" })
+        if (!(await checkAdmin(id))) return res.status(401).json({ err: "You are not eligible to delete the candidate." })
 
         const candidate = await Candidate.findByIdAndDelete(candidateId)
         if (!candidate) {
             res.status(401).json("Candidate couldn't be deleted.")
         }
-        res.status(200).json("Successfully deleted.")
+        res.status(200).json("candidate deleted")
 
     } catch (error) {
         console.log(error);
@@ -125,11 +126,6 @@ router.delete('/:candidateId', jwtAuthMiddleware, async (req, res) => {
     }
 
 })
-
-
-
-
-
 
 
 module.exports = router

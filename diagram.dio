@@ -1,16 +1,16 @@
 <mxfile host="65bd71144e">
     <diagram id="FjIwjCrNoC_f-EG2bCmq" name="Page-1">
-        <mxGraphModel dx="832" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="797" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="62" value="User Login" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="62" value="User Login" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="10" y="350" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="63" target="64" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value="User signup" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="63" value="User signup" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="200" y="240" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="64" value="" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -34,7 +34,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="72" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;update pasword&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="72" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;update pasword&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="620" y="144" width="120" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="78" style="edgeStyle=none;html=1;rounded=0;curved=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="90" edge="1">
@@ -46,7 +46,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="74" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;update candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="74" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;update candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="650" y="515" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="82" value="" style="endArrow=none;html=1;entryX=0.957;entryY=0.56;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="64" edge="1">
@@ -55,7 +55,7 @@
                         <mxPoint x="280" y="375" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="83" value="live vote count" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="83" value="live vote count" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
                     <mxGeometry x="620" y="187" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="84" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;curved=0;" parent="1" edge="1">
@@ -67,7 +67,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="86" value="delete&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="86" value="delete&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="650" y="555" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="92" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="90" target="74" edge="1">
@@ -75,7 +75,7 @@
                         <mxPoint x="530" y="495" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="87" value="Add candidate" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="87" value="Add candidate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="650" y="475" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="90" value="role=&quot;admin&quot;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -111,7 +111,7 @@
                 <mxCell id="104" value="get(/votecount)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="500" y="179" width="100" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="105" value="view profile" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="105" value="view profile" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="620" y="99" width="120" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="106" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;curved=0;" parent="1" target="83" edge="1">
@@ -126,7 +126,7 @@
                 <mxCell id="107" value="get(user/profile)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="485" y="90" width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="110" value="vote&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="110" value="vote&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;candidate&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
                     <mxGeometry x="620" y="360" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="117" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="113" edge="1">
@@ -147,7 +147,7 @@
                 <mxCell id="123" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;b&gt;post(user/addCandidate)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="520" y="485" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="128" value="view all candidates" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="128" value="view all candidates" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="620" y="230" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="129" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;curved=0;" parent="1" target="128" edge="1">

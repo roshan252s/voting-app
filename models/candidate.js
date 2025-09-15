@@ -15,7 +15,8 @@ const candidateSchema = new mongoose.Schema({
     },
     party: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     votes:[
        {

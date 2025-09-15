@@ -11,6 +11,12 @@ const { jwtAuthMiddleware, generateToken } = require('../jwt')
 
 router.post('/signup', async (req, res) => {
     try {
+
+
+        // const hasAdmin = await User.findOne({ role: "admin" })
+        // res.status(200).json(hasAdmin)
+
+
         const userData = await req.body
         const newUser = new User(userData)
 
@@ -37,7 +43,7 @@ router.post('/login', async (req, res) => {
         }
 
         const token = generateToken(user.id)
-        res.status(200).json(token)
+        res.status(200).json({ user, token })
     } catch (error) {
         res.status(500).json({ message: "Server Error found" })
     }
@@ -47,12 +53,12 @@ router.post('/login', async (req, res) => {
 router.get('/profile', jwtAuthMiddleware, async (req, res) => {
     try {
 
-        const tokenId = req.user.payload.id
-        const user = await User.findById(tokenId)
-        if (!user) {
-            res.status(500).json({ err: "No user found" })
-        }
+        const userId = req.user.id
 
+        const user = await User.findById(userId)
+        if (!user) {
+            res.status(500).json({ err: "User not found" })
+        }
         res.status(200).json(user)
 
     } catch (err) {
@@ -66,17 +72,19 @@ router.put('/profile/password', jwtAuthMiddleware, async (req, res) => {
 
     try {
 
-        const tokenId = req.user.payload.id
+        const userId = req.user.id
+        console.log(userId);
+
         const { oldPassword, newPassword } = req.body
 
-        const user = await User.findById(tokenId)
+        const user = await User.findById(userId)
 
-        if (!(await user.comparePassword(oldPassword))) {
+        if (!user || !(await user.comparePassword(oldPassword))) {
             res.status(500).json({ err: "Old password doesn't match" })
         }
-         user.password = newPassword
-         user.save()
-         res.status(200).json({success:"Password changed successfully"})
+        user.password = newPassword
+        user.save()
+        res.status(200).json({ success: "Password changed successfully" })
 
     } catch (error) {
         res.status(500).json({ err: "Internal server error" })
