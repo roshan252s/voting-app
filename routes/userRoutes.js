@@ -6,15 +6,17 @@ const User = require('../models/user')
 
 
 const { jwtAuthMiddleware, generateToken } = require('../jwt')
+const Candidate = require('../models/candidate')
 
 
-
+//Creating a new user
 router.post('/signup', async (req, res) => {
     try {
 
-
-        // const hasAdmin = await User.findOne({ role: "admin" })
-        // res.status(200).json(hasAdmin)
+        //Check if Admin already exists. 
+        const hasAdmin = await User.findOne({ role: "admin" })
+        const { role } = await req.body
+        if (hasAdmin && role == "admin") return res.status(500).json("Admin already exists")
 
 
         const userData = await req.body
@@ -33,6 +35,8 @@ router.post('/signup', async (req, res) => {
     }
 })
 
+
+//Login user
 router.post('/login', async (req, res) => {
     const { nid, password } = req.body
 
@@ -49,7 +53,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-
+//Get profile of the user
 router.get('/profile', jwtAuthMiddleware, async (req, res) => {
     try {
 
@@ -67,7 +71,7 @@ router.get('/profile', jwtAuthMiddleware, async (req, res) => {
 
 })
 
-
+//Change password of the user
 router.put('/profile/password', jwtAuthMiddleware, async (req, res) => {
 
     try {
@@ -93,10 +97,34 @@ router.put('/profile/password', jwtAuthMiddleware, async (req, res) => {
 
 })
 
+//Voting the candidate by the user.
+router.post('/vote/:candidateId', jwtAuthMiddleware, async (req, res) => {
+    try {
+        const id = req.user.id
+        const user = await User.findById(id)
 
+        if (!user) return res.status(404).json("Invalid user")
+        if (user.role == "admin") return res.status(500).json("Admin are not allowed to vote.")
+        if (user.isVoted) return res.status(500).json("You have already voted.")
 
+        const candidateId = req.params.candidateId
+        const candidate = await Candidate.findById(candidateId)
+        
+        if (!candidate) return res.status(404).json("Invalid candidate")
 
+        candidate.votes.push({user:id})
+        candidate.voteCount++
+        await candidate.save()
 
+        user.isVoted = true
+        await user.save()
+
+        res.status(200).json({ message: "vote recorded successfully" })
+
+    } catch (error) {
+        res.status(500).json({ message: "Server Error found" })
+    }
+})
 
 
 

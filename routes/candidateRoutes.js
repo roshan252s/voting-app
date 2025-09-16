@@ -51,6 +51,38 @@ router.get('/', async (req, res) => {
 
 })
 
+//To see all the candidate votes
+router.get('/vote', async (req, res) => {
+    try {
+
+        //Find all the candidates and sort them by voteCount in descending order
+        const candidate = await Candidate.find().sort({voteCount:"desc"})
+        if (!candidate) {
+            res.status(401).json("This doesn't exist.")
+        }
+        if (candidate.length == 0) {
+            res.status(401).json("No candidate found")
+        }
+
+        //Map only speciefic data of the candidates
+        const record = candidate.map((data)=>{
+            return{
+                party:data.party,
+                count:data.voteCount
+            }
+        })
+       
+        res.status(200).json(record)
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ err: "Internal server error" })
+
+    }
+
+})
+
 
 //To add a new candidate
 router.post('/', jwtAuthMiddleware, async (req, res) => {
